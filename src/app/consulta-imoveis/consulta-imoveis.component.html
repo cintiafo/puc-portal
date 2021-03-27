@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-12">
+        <h1>
+            Consulta de Imóveis
+        </h1>
+        <form #consultaForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">   
+              <div class="col-md-6 mb-3">
+                <label for="tipoPessoa">Pessoa</label>
+                <select class="form-control custom-select d-block w-100" id="tipoPessoa" required="">
+                    <option value="">Selecione...</option>
+                    <option>Física</option>
+                    <option>Jurídica</option>
+                    <option>Rural</option>
+                </select>
+                <div class="invalid-feedback">
+                  Selecionar o tipo de pessoa é obrigatório.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="identificador">Identificador</label>
+                <input type="number" class="form-control" id="identificador" placeholder="" value="" required="">
+                <div class="invalid-feedback">
+                  Informar o identificador é obrigatório.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" [disabled]="!consultaForm.form.valid">
+                        Consultar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
