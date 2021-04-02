@@ -1,3 +1,7 @@
+import { ImovelDataService } from './../service/imovel.data.service';
+import { ImovelDTO } from './../api/model/imovelDTO';
+import { ImovelControllerService } from './../api/api/imovelController.service';
+import { PessoaDTO } from './../api/model/pessoaDTO';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -8,13 +12,34 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ConsultaImoveisComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  tiposPessoas: any = [];
+  tipoPessoaSelecionado: string = '';
+  identificador: string = '';
+
+
+  constructor(private router: Router,
+              private service: ImovelControllerService,
+              private dataService: ImovelDataService) { }
 
   ngOnInit(): void {
+    this.buildTiposPessoas();
   }
 
-  onSubmit(){
-    this.router.navigate(['/lista-imoveis']);
+  buildTiposPessoas(){
+    this.tiposPessoas = [
+      {value: PessoaDTO.TipoPessoaEnum.FISICA, label: 'Fisíca'},
+      {value: PessoaDTO.TipoPessoaEnum.JURIDICA, label: 'Jurídica'},
+      {value: PessoaDTO.TipoPessoaEnum.RURAL, label: 'Rural'}
+    ];
+  }
+
+  onSubmit() { 
+    this.service.listarPorPessoaUsingGET(this.identificador, this.tipoPessoaSelecionado).subscribe(list =>{
+      if (list && list.length > 0) {
+        this.dataService.changList(list);
+        this.router.navigate(['/lista-imoveis']);
+      }
+    });
   }
 
 }

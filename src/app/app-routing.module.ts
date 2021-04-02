@@ -1,6 +1,5 @@
 import { HomeComponent } from './home/home.component';
-import { ListaIptuComponent } from './lista-iptu/lista-iptu.component';
-import { ListaItrComponent } from './lista-itr/lista-itr.component';
+import { ConsultaPagamentosComponent } from './consulta-pagamentos/consulta-pagamentos.component';
 import { ListaImoveisComponent } from './lista-imoveis/lista-imoveis.component';
 import { ConsultaImoveisComponent } from './consulta-imoveis/consulta-imoveis.component';
 import { NgModule } from '@angular/core';
@@ -11,8 +10,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'consulta-imoveis', component: ConsultaImoveisComponent },
   { path: 'lista-imoveis', component: ListaImoveisComponent },
-  { path: 'lista-iptu', component: ListaIptuComponent },
-  { path: 'lista-itr', component: ListaItrComponent },
+  { path: 'pagamento/:tipo/:id', component: ConsultaPagamentosComponent },
+
 ];
 
 @NgModule({

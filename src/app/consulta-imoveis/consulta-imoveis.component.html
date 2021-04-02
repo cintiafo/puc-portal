@@ -6,20 +6,18 @@
         <form #consultaForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="row">   
               <div class="col-md-6 mb-3">
-                <label for="tipoPessoa">Pessoa</label>
-                <select class="form-control custom-select d-block w-100" id="tipoPessoa" required="">
+                <label for="tipoPessoa">Tipo Pessoa</label>
+                <select class="form-control custom-select d-block w-100" name="tipoPessoa" id="tipoPessoa" [(ngModel)]="tipoPessoaSelecionado" required="">
                     <option value="">Selecione...</option>
-                    <option>Física</option>
-                    <option>Jurídica</option>
-                    <option>Rural</option>
+                    <option *ngFor="let option of tiposPessoas" [value]="option.value">{{option.label}}</option>
                 </select>
                 <div class="invalid-feedback">
                   Selecionar o tipo de pessoa é obrigatório.
                 </div>
               </div>
               <div class="col-md-6 mb-3">
-                <label for="identificador">Identificador</label>
-                <input type="number" class="form-control" id="identificador" placeholder="" value="" required="">
+                <label for="identificador">Identificador da Pessoa</label>
+                <input type="number" class="form-control" id="identificador" name="identificador" [(ngModel)]="identificador" placeholder="" required="">
                 <div class="invalid-feedback">
                   Informar o identificador é obrigatório.
                 </div>

@@ -1,1 +1,61 @@
-<p>lista-imoveis works!</p>
+<div class="row">
+    <div class="col-12">
+        <h1>
+            Lista de Imóveis
+        </h1>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-12">
+        <h3>Pessoa</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-1">
+        Nome
+    </div>
+    <div class="col-1">Nome da pessoa</div>
+</div>
+<div class="row">
+    <div class="col-1">
+        Tipo 
+    </div>
+    <div class="col-1">Tipo da pessoa</div>
+</div>
+<div class="row">
+    <div class="col-1">
+        Identificador
+    </div>
+    <div class="col-1">Identificador da pessoa</div>
+</div> -->
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">Código de Registro</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Pagamentos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let imovel of listaImoveis">
+            <th scope="row">{{imovel.registro}}</th>
+            <td>{{imovel.tipo}}</td>
+            <td>{{imovel.endereco}}</td>
+            <td>
+                <a [routerLink]="['/pagamento', imovel.tipoPagamento, imovel.id]">
+                    <i-bs
+                        name="search"
+                        class="text-primary"
+                        width="1rem"
+                        height="1rem">
+                    </i-bs>
+                </a>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+</div>
+
