@@ -37,5 +37,5 @@ jobs:
         app-name: puc-portal-servicos
         slot-name: Production
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_74C93B7E66084096B689BC868BC16A9A }}
-        package: .
+        package: dist/portal
 
