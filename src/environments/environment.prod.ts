@@ -1,5 +1,4 @@
 export const environment = {
   production: true,
-  baseHref: '/portal/',
-  basePath: 'https://puc-portal-servicos.azurewebsites.net'
+  basePath: 'https://sqspy7833a.execute-api.us-east-2.amazonaws.com/dev/stur-service'
 };

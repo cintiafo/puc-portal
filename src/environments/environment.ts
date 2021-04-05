@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  basePath: 'http://localhost:8080'
+  basePath: 'https://sqspy7833a.execute-api.us-east-2.amazonaws.com/dev/stur-service'
 };
 
 /*

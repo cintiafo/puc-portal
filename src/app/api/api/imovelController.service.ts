@@ -88,7 +88,7 @@ export class ImovelControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<ImovelDTO>(`${this.basePath}/portal/imoveis/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<ImovelDTO>(`${this.basePath}/imoveis/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -142,7 +142,7 @@ export class ImovelControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Array<ImovelDTO>>(`${this.basePath}/portal/imoveis/listarPorPessoa`,
+        return this.httpClient.get<Array<ImovelDTO>>(`${this.basePath}/imoveis/listarPorPessoa`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,
