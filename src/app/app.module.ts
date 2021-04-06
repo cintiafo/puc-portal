@@ -1,6 +1,7 @@
 import { ImovelDataService } from './service/imovel.data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ApiModule } from './api/api.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { search } from 'ngx-bootstrap-icons';
 
@@ -38,6 +40,8 @@ const icons = {
     ModalModule.forRoot(),
     HttpClientModule,
     ApiModule,
+    BrowserAnimationsModule,
+    CollapseModule.forRoot(),
     NgxBootstrapIconsModule.pick(icons)
   ],
   providers: [ImovelDataService],

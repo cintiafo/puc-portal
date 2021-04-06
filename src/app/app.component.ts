@@ -8,8 +8,15 @@ import { setTheme } from 'ngx-bootstrap/utils';
 })
 export class AppComponent {
   title = 'portal';
+  isCollapsed: boolean = true;
+  
   constructor(){
     setTheme('bs4');
+  }
+
+
+  toggleCollapse(): void {
+    this.isCollapsed = !this.isCollapsed;
   }
 
 }
