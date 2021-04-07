@@ -5,8 +5,8 @@
         </h1>
     </div>
 </div>
-<div class="table-responsive">
-    <table class="table">
+<div class="table-monitor">
+    <table class="table table-striped">
         <thead>
             <tr>
             <th scope="col">Ano</th>
@@ -21,6 +21,21 @@
             <td>{{pagamento.valor | currency:'BRL':'symbol'}}</td>
             <td>{{pagamento.status}}</td>
             <td>-</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="table-mobile">
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let pagamento of listaPagamentos">
+                <td>
+                    <b>Ano: </b>{{pagamento.ano}} <br/>
+                    <b>Valor: </b>{{pagamento.valor | currency:'BRL':'symbol'}}<br/>
+                    <b>Status: </b>{{pagamento.status}}<br/>
+                    <b>2ª via: </b> -
+                </td>
             </tr>
         </tbody>
     </table>

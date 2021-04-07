@@ -1,9 +1,8 @@
 import { ImovelDataService } from './../service/imovel.data.service';
-import { ImovelDTO } from './../api/model/imovelDTO';
 import { ImovelControllerService } from './../api/api/imovelController.service';
 import { PessoaDTO } from './../api/model/pessoaDTO';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consulta-imoveis',
@@ -27,7 +26,7 @@ export class ConsultaImoveisComponent implements OnInit {
 
   buildTiposPessoas(){
     this.tiposPessoas = [
-      {value: PessoaDTO.TipoPessoaEnum.FISICA, label: 'Fisíca'},
+      {value: PessoaDTO.TipoPessoaEnum.FISICA, label: 'Física'},
       {value: PessoaDTO.TipoPessoaEnum.JURIDICA, label: 'Jurídica'},
       {value: PessoaDTO.TipoPessoaEnum.RURAL, label: 'Rural'}
     ];

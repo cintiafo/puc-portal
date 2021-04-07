@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault" [ngClass]="{'show': !isCollapsed}">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="/home">Página Inicial<span class="sr-only">(current)</span></a>
+        <a class="nav-link" (click)="close()" routerLink="/home">Página Inicial<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/consulta-imoveis">Consulta Imóveis</a>
+        <a class="nav-link" (click)="close()" routerLink="/consulta-imoveis">Consulta Imóveis</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Administradores</a>

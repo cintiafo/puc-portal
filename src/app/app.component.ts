@@ -19,4 +19,8 @@ export class AppComponent {
     this.isCollapsed = !this.isCollapsed;
   }
 
+  close(): void {
+    this.isCollapsed = true;
+  }
+
 }

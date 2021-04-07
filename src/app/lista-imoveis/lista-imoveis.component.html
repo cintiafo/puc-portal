@@ -29,8 +29,8 @@
     <div class="col-1">Identificador da pessoa</div>
 </div> -->
 
-<div class="table-responsive">
-    <table class="table">
+<div class="table-monitor">
+    <table class="table table-striped">
         <thead>
             <tr>
             <th scope="col">Código de Registro</th>
@@ -57,5 +57,27 @@
             </tr>
         </tbody>
         </table>
+</div>
+
+<div class="table-mobile">
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let imovel of listaImoveis">
+                <td>
+                    <b>Código Registro:</b> {{imovel.registro}} <br/>
+                    <b>Tipo:</b> {{imovel.tipo}}<br/>
+                    <b>Endereço:</b> {{imovel.endereco}}<br/>
+                    <b>Pagamentos: </b> <a [routerLink]="['/pagamento', imovel.tipoPagamento, imovel.id]">
+                                    <i-bs
+                                        name="search"
+                                        class="text-primary"
+                                        width="1rem"
+                                        height="1rem">
+                                    </i-bs>
+                                </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
