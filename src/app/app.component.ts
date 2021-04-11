@@ -7,7 +7,6 @@ import { setTheme } from 'ngx-bootstrap/utils';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'portal';
   isCollapsed: boolean = true;
   
   constructor(){

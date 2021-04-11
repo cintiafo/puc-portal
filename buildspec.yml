@@ -11,6 +11,8 @@ phases:
       - echo installing dependencies...
       - npm i -g @angular/cli
       - npm install
+      - echo executing unit tests...
+      - npm run test
   build:
     commands:
       - echo Build started on `date`
