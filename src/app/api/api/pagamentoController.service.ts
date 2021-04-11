@@ -88,7 +88,7 @@ export class PagamentoControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<PagamentoDTO>(`${this.basePath}/pagamentos/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<PagamentoDTO>(`${this.basePath}/stur-service/pagamentos/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -134,7 +134,7 @@ export class PagamentoControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Array<PagamentoDTO>>(`${this.basePath}/pagamentos/listarPorImovel`,
+        return this.httpClient.get<Array<PagamentoDTO>>(`${this.basePath}/stur-service/pagamentos/listarPorImovel`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

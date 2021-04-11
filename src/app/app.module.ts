@@ -1,3 +1,4 @@
+import { CatalogoServicosComponent } from './catalogo-servicos/catalogo-servicos.component';
 import { ImovelDataService } from './service/imovel.data.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -29,6 +30,7 @@ const icons = {
     ConsultaImoveisComponent,
     ListaImoveisComponent,
     ConsultaPagamentosComponent,
+    CatalogoServicosComponent,
     HomeComponent
   ],
   imports: [

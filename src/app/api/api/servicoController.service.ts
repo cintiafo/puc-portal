@@ -19,14 +19,14 @@ import { CustomHttpUrlEncodingCodec }                        from '../encoder';
 
 import { Observable }                                        from 'rxjs';
 
-import { ImovelDTO } from '../model/imovelDTO';
+import { ServicoDTO } from '../model/servicoDTO';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 
 @Injectable()
-export class ImovelControllerService {
+export class ServicoControllerService {
 
     protected basePath = environment.basePath;
     public defaultHeaders = new HttpHeaders();
@@ -64,9 +64,9 @@ export class ImovelControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public getUsingGET(id: number, observe?: 'body', reportProgress?: boolean): Observable<ImovelDTO>;
-    public getUsingGET(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ImovelDTO>>;
-    public getUsingGET(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ImovelDTO>>;
+    public getUsingGET(id: number, observe?: 'body', reportProgress?: boolean): Observable<ServicoDTO>;
+    public getUsingGET(id: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<ServicoDTO>>;
+    public getUsingGET(id: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<ServicoDTO>>;
     public getUsingGET(id: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
         if (id === null || id === undefined) {
@@ -88,7 +88,7 @@ export class ImovelControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<ImovelDTO>(`${this.basePath}/stur-service/imoveis/${encodeURIComponent(String(id))}`,
+        return this.httpClient.get<ServicoDTO>(`${this.basePath}/catalogo-servico-service/servicos/${encodeURIComponent(String(id))}`,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -99,32 +99,24 @@ export class ImovelControllerService {
     }
 
     /**
-     * listarPorPessoa
+     * listarPorOrgao
      * 
-     * @param identificador identificador
-     * @param tipoPessoa tipoPessoa
+     * @param orgaoId orgaoId
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public listarPorPessoaUsingGET(identificador: string, tipoPessoa: string, observe?: 'body', reportProgress?: boolean): Observable<Array<ImovelDTO>>;
-    public listarPorPessoaUsingGET(identificador: string, tipoPessoa: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ImovelDTO>>>;
-    public listarPorPessoaUsingGET(identificador: string, tipoPessoa: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ImovelDTO>>>;
-    public listarPorPessoaUsingGET(identificador: string, tipoPessoa: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public listarPorOrgaoUsingGET(orgaoId: number, observe?: 'body', reportProgress?: boolean): Observable<Array<ServicoDTO>>;
+    public listarPorOrgaoUsingGET(orgaoId: number, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<ServicoDTO>>>;
+    public listarPorOrgaoUsingGET(orgaoId: number, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<ServicoDTO>>>;
+    public listarPorOrgaoUsingGET(orgaoId: number, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
-        if (identificador === null || identificador === undefined) {
-            throw new Error('Required parameter identificador was null or undefined when calling listarPorPessoaUsingGET.');
-        }
-
-        if (tipoPessoa === null || tipoPessoa === undefined) {
-            throw new Error('Required parameter tipoPessoa was null or undefined when calling listarPorPessoaUsingGET.');
+        if (orgaoId === null || orgaoId === undefined) {
+            throw new Error('Required parameter orgaoId was null or undefined when calling listarPorOrgaoUsingGET.');
         }
 
         let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
-        if (identificador !== undefined && identificador !== null) {
-            queryParameters = queryParameters.set('identificador', <any>identificador);
-        }
-        if (tipoPessoa !== undefined && tipoPessoa !== null) {
-            queryParameters = queryParameters.set('tipoPessoa', <any>tipoPessoa);
+        if (orgaoId !== undefined && orgaoId !== null) {
+            queryParameters = queryParameters.set('orgaoId', <any>orgaoId);
         }
 
         let headers = this.defaultHeaders;
@@ -142,7 +134,7 @@ export class ImovelControllerService {
         const consumes: string[] = [
         ];
 
-        return this.httpClient.get<Array<ImovelDTO>>(`${this.basePath}/stur-service/imoveis/listarPorPessoa`,
+        return this.httpClient.get<Array<ServicoDTO>>(`${this.basePath}/catalogo-servico-service/servicos/listarPorOrgao`,
             {
                 params: queryParameters,
                 withCredentials: this.configuration.withCredentials,

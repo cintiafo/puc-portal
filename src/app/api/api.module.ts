@@ -1,3 +1,5 @@
+import { ServicoControllerService } from './api/servicoController.service';
+import { OrgaoMunicipalControllerService } from './api/orgaoMunicipalController.service';
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
 import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +14,9 @@ import { PagamentoControllerService } from './api/pagamentoController.service';
   exports:      [],
   providers: [
     ImovelControllerService,
-    PagamentoControllerService ]
+    PagamentoControllerService,
+    OrgaoMunicipalControllerService,
+    ServicoControllerService ]
 })
 export class ApiModule {
     public static forRoot(configurationFactory: () => Configuration): ModuleWithProviders<ApiModule> {

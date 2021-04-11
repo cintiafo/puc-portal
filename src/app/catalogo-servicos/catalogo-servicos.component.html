@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-12">
+        <h1>
+            Catálogo de Serviços
+        </h1>
+        <form #consultaForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="row">   
+              <div class="col-md-12 mb-3 mt-3">
+                <label>Selecione um órgão municipal</label>
+                <select class="form-control custom-select d-block w-50 mx-auto" name="orgao" id="orgao" [(ngModel)]="orgaoSelecionado" required="">
+                    <option *ngFor="let option of orgaos" [value]="option.id">{{option.nome}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" [disabled]="!consultaForm.form.valid">
+                        Consultar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row" [style.display]="servicos.length === 0 ? 'none' : 'inline'">
+  <div class="col-12 mt-3">
+    <h4>Serviços:</h4>
+    <ul>
+      <li *ngFor="let servico of servicos">
+        {{servico.nome}}
+      </li>
+    </ul>
+  </div>
+</div>
+
